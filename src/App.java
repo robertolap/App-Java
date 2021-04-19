@@ -38,7 +38,7 @@ public class App {
 	window.add(gender);
 	
 	String[] type_gender = {"Drama", "Comédia","Ação","Aventura","Terror","Documentário"};
-	JComboBox  choiseBox = new JComboBox<String>(type_gender);
+	JComboBox<String>  choiseBox = new JComboBox<String>(type_gender);
 	window.add(choiseBox);
 	
 	
@@ -102,20 +102,13 @@ saveButton.addActionListener(new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("Título: "+titleText.getText());
-			System.out.println("Sinopse: "+sipopseTex.getText());
-			System.out.println("Disponível: "+ group.getValueradio());
-			System.out.println("Gênero: "+choiseBox.getSelectedItem());
-			System.out.println("Assistido: "+ watched.isSelected());
-			System.out.println("Avaliação:  "+ score.getRating());
-				
-			
+			Movie movie = new Movie( titleText,sipopseTex,group,choiseBox,watched,score);
+			movie.printMovie();
 			
 		}
 	});
 	
-	
-	
+
 	  }
 
 }
